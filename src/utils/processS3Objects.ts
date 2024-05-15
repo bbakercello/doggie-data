@@ -1,9 +1,7 @@
 import 'dotenv/config';
 import { S3 } from 'aws-sdk';
 import { PrismaClient } from '@prisma/client';
-import QRCode from 'qrcode';
-import  GenerateQRCode  from './GenerateQRCode';
-import config  from '@/config';  // Adjust path if necessary
+import generateQRCode from './generateQRCode';  // Adjust path if necessary
 
 const s3 = new S3({
   region: process.env.AWS_REGION
@@ -46,7 +44,7 @@ async function processS3Objects(): Promise<void> {
         });
 
         // Generate a QR code for the new pet
-        const qrCodeUrl = await GenerateQRCode(newPet.id);
+        const qrCodeUrl = await generateQRCode(newPet.id);
 
         // Update the pet with the QR code URL
         await prisma.pet.update({
@@ -66,4 +64,4 @@ async function processS3Objects(): Promise<void> {
   }
 }
 
-processS3Objects();
+export default processS3Objects;
