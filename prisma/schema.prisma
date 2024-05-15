@@ -15,13 +15,16 @@ model Pet {
   name        String
   description String
   photo       String
-  qrCode      String?  // Confirm this line exists and is correct
+  qrCode      String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now()) @updatedAt
   ownerId     Int?
   owner       User?    @relation(fields: [ownerId], references: [id])
   discoveredBy User[]  @relation("UserDiscoveries")
+
+  @@unique([name, description, photo]) // Composite unique constraint
 }
+
 
 
 

@@ -2,14 +2,18 @@
   "name": "doggie-data",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "processS3Objects": "node --loader ts-node/esm ./src/utils/processS3Objects.ts"
   },
   "dependencies": {
-    "@prisma/client": "^5.13.0",
+    "@prisma/client": "^5.14.0",
+    "aws-sdk": "^2.1620.0",
+    "dotenv": "^16.4.5",
     "next": "14.2.1",
     "qrcode": "^1.5.3",
     "react": "^18",
@@ -24,6 +28,7 @@
     "eslint-config-next": "14.2.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "ts-node": "^10.4.0"
   }
 }
