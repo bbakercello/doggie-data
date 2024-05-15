@@ -1,8 +1,8 @@
 // src/pages/api/discoverPet.ts
 import { PrismaClient } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import  {GenerateQRCode}  from '@/utils/generateQRCode';  // Adjust the path as necessary
-import { config } from '../../config'; 
+import  GenerateQRCode  from '@/utils/GenerateQRCode';  // Adjust the path as necessary
+import config from '../../config'; 
 const prisma = new PrismaClient();
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 // src/pages/api/createPet.ts (renaming for clarity)
 import { PrismaClient } from '@prisma/client';
-import { generateQRCode } from '../../utils/generateQRCode'; // Ensure correct path to the utility
+import GenerateQRCode from './generateQRCode'; // Ensure correct path to the utility
 const prisma = new PrismaClient();
 export default function handler(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -26,7 +26,7 @@ export default function handler(req, res) {
                     }
                 });
                 // Generate a QR code for the new pet
-                const qrCodeUrl = yield generateQRCode(newPet.id);
+                const qrCodeUrl = yield GenerateQRCode(newPet.id);
                 // Update the pet with the QR code URL
                 const updatedPet = yield prisma.pet.update({
                     where: { id: newPet.id },

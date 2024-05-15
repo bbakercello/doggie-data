@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "processS3Objects": "node --loader ts-node/esm ./src/utils/processS3Objects.ts"
+    "processS3Objects": "node --loader ts-node/esm ./src/pages/api/processS3Objects.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.14.0",

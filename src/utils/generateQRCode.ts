@@ -1,7 +1,7 @@
 import QRCode from 'qrcode';
-import { config } from '../config';  // Adjust path if necessary
+import config from '../config';  // Adjust path if necessary
 
-export async function GenerateQRCode(petId: number): Promise<string> {
+async function GenerateQRCode(petId: number): Promise<string> {
   const url = `${config.endpoints.discoverPet}/${petId}`;  // Use the config to form the URL
   try {
     const qrCodeImage = await QRCode.toDataURL(url);
@@ -11,3 +11,5 @@ export async function GenerateQRCode(petId: number): Promise<string> {
     throw new Error("Failed to generate QR code");
   }
 }
+
+export default GenerateQRCode;

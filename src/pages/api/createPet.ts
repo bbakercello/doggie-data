@@ -1,7 +1,7 @@
 // src/pages/api/createPet.ts (renaming for clarity)
 import { PrismaClient } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {GenerateQRCode}  from '../../utils/generateQRCode';  // Ensure correct path to the utility
+import GenerateQRCode  from '../../utils/GenerateQRCode';  // Ensure correct path to the utility
 
 const prisma = new PrismaClient();
 
