@@ -1,7 +1,7 @@
 // src/pages/api/discoverPet.ts
 import { PrismaClient } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { generateQRCode } from '@/utils/generateQRCode';  // Adjust the path as necessary
+import  {GenerateQRCode}  from '@/utils/generateQRCode';  // Adjust the path as necessary
 import { config } from '../../config'; 
 const prisma = new PrismaClient();
 
@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
       // Call the generateQRCode function to get the QR code for the discovered pet
-      const qrCodeUrl = await generateQRCode(petId);
+      const qrCodeUrl = await GenerateQRCode(petId);
 
       // Return the result and the QR code URL
       res.status(200).json({ result, qrCodeUrl });
